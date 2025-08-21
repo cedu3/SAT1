@@ -1,0 +1,5 @@
+build:
+  env: python
+  python_version: 3.8
+  install_command: pip install -r requirements.txt
+  start_command: python app.py
