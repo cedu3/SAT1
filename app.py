@@ -91,6 +91,7 @@ rf_B.fit(monthly_B[group_cols_B].values, monthly_B["Suma"].values)
 # =======================
 app = dash.Dash(__name__)
 app.title = "Predicción de Multas (Suma de MultasImpuestas) — 2025"
+server = app.server
 
 # Opciones
 opt_mes  = [{"label":f"{m:02d}","value":int(m)} for m in sorted(base["Mes"].dropna().astype(int).unique())]
@@ -317,4 +318,4 @@ def descargar_csv(n_clicks, meses, gravedades, formatos, codigos):
 # =======================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8050))
-    app.run(debug=True, host="127.0.0.1", port=port)
+    app.run(debug=True, host="0.0.0.0", port=port)
